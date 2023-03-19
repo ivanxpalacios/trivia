@@ -1,0 +1,90 @@
+@use 'variables' as v; 
+
+/** Media Queries **/
+@mixin telefonoSmall {
+    @media (min-height: 1px) and (max-height: 840px) {
+        @content;
+    }
+}
+
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+  
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+
+@mixin boton($bgColor, $colorTexto) {
+    background-color: $bgColor;
+    padding: 1rem 3rem;
+    color: $colorTexto;
+    margin: 1rem;
+    font-size: 2.2rem;
+    font-weight: 400;
+    display: inline-block;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    @include tablet {
+        width: auto;
+    }
+    &:hover {
+        background-color: darken($bgColor, 10%);
+    }
+}
+
+@mixin grid($columnas, $espaciado ) {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+}
+
+@mixin headingCursiva {
+    text-align: center;
+    color: v.$secundario;
+    font-family: v.$fuenteCursiva;
+    line-height: .8;
+    font-weight: 400;
+    text-transform: lowercase;
+    font-size: 4rem;
+    span {
+        color: v.$negro;
+        display: block;
+        text-transform: uppercase;
+        font-family: v.$fuentePrincipal;
+    }
+}
+
+
+@mixin headingBorder( $colorTexto, $colorLinea ) {
+    font-size: 3.6rem;
+    display: inline-block;
+    margin-top: 5rem;
+    color: $colorTexto;
+    @include tablet { 
+        margin-top: 0;
+    }
+    
+    &::after {
+        content: '';
+        background-color: $colorLinea;
+        height: 1rem;
+        width: calc( 100% + 1rem);
+        display: block;
+        margin: -1.4rem 0 0 0;
+    }
+}

@@ -1,0 +1,46 @@
+@use 'variables' as v; 
+@use 'mixins' as m;
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+  
+body {
+    font-family: v.$fuentePrincipal;
+    font-size: 1.6rem;
+}
+
+p {
+    font-size: 2rem;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+ul {
+    padding:0;
+    list-style: none;
+    margin: 0;
+}
+
+.bg {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #C5FE60;
+    opacity: 0.7;
+    background: linear-gradient(135deg, #0b061755 25%, transparent 25%) -40px 0/ 80px 80px, linear-gradient(225deg, #0b0617 25%, transparent 25%) -40px 0/ 80px 80px, linear-gradient(315deg, #0b061755 25%, transparent 25%) 0px 0/ 80px 80px, linear-gradient(45deg, #0b0617 25%, #C5FE60 25%) 0px 0/ 80px 80px;
+
+    @include m.telefonoSmall {
+        bottom: -15rem; 
+    }
+}

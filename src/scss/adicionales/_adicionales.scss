@@ -1,0 +1,95 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.alerta, .correct {
+    background-color: rgb(180, 0, 0);
+    padding: 1rem;
+    font-size: 1.6rem;
+
+    @include m.tablet {
+        font-size: 2rem;
+        
+    }
+}
+
+.correct {
+    background-color: rgba(0, 180, 54, 0.815);
+}
+
+.campo-trivia {
+    text-align: left;
+    margin: 0 0 2rem 2rem;
+
+    input {
+        margin-right: 2rem;
+    }
+
+    input:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #d1d3d1;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 3px solid white;
+    }
+
+    input:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: darken($color: v.$primario, $amount: 30%); 
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 3px solid white;
+    }
+
+    label {
+        cursor: pointer;
+    }
+}
+
+.question-text {
+    margin-bottom: 5rem;
+    line-height: 1.5;
+}
+
+.questionFieldset {
+    border: none;
+}
+
+.button__disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.div-felicidades {
+    margin-top: 15rem;
+
+    p {
+        margin-bottom: 5rem;
+    }
+
+    span {
+        color: v.$primario;
+        font-weight: bold;
+        font-size: 2.5rem;
+    }
+}
+
+.div-disculpa {
+    margin-top: 15rem;
+
+    p {
+        font-size: 2.5rem;
+
+    }
+}

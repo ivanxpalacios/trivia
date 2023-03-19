@@ -1,0 +1,52 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.formulario {
+
+    @include m.tablet {
+        width: 100%;
+    }
+
+    &__legend {
+        margin: 1rem 0 2rem 0;
+        color: v.$primario;
+        font-size: 1.5rem;
+
+        @include m.tablet {
+        font-size: 2rem;
+            
+        }
+    }
+
+    &__row {
+        
+
+        @include m.tablet {
+            display: flex;
+        }
+    }
+
+    &__campo {
+        margin: 1rem 1rem 2rem;
+
+        @include m.tablet {
+            width: 100%
+        }
+    }
+
+    &__label {
+        display: block;
+        text-align: start;
+        margin-bottom: 1rem;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    &__submit {
+
+        @include m.boton(v.$primario, v.$secundario);
+    }
+}

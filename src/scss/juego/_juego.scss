@@ -1,0 +1,52 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.juego {
+    position: relative;
+
+    h1 {
+        font-size: 4.5rem;
+
+        @include m.tablet {
+            font-size: 5rem;
+        }
+    }
+
+
+    &__heading, &__contenedor {
+        background-color: v.$secundario;
+        color: v.$blanco;
+        width: 90%;
+        text-align: center;
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        transform: translate(-50%);
+        padding: 1rem;
+
+        @include m.tablet {
+            width: 75%;
+            padding: 2rem;
+
+        }
+    }
+
+    &__heading {
+
+
+        @include m.tablet {
+            top: 5rem;
+        }
+    }
+
+    &__contenedor {
+        top: 16rem;
+        height: 60rem;
+
+        @include m.tablet {
+            top: 25rem;
+            height: 55rem;
+
+        }
+    }
+}
