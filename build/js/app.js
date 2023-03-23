@@ -32,11 +32,22 @@ function eventListeners() {
 
 
 // Funciones
-function searchCategories() {
+async function searchCategories() {
     const url = 'https://opentdb.com/api_category.php';
-    fetch(url)
-        .then( respuesta => respuesta.json())
-        .then( resultado => fillSelect(resultado.trivia_categories))
+
+    try {
+        const respuesta = await fetch(url);
+        const resultado = await respuesta.json();
+
+        fillSelect(resultado.trivia_categories)
+    } catch (error) {
+        printAlert('There was an error loading the trivia. The page will refresh automatically.', 'invalid')
+    
+        setTimeout(() => {
+            location.reload();
+        }, 3000);
+    }
+
 }
 
 function fillSelect(categories) {
@@ -52,7 +63,7 @@ function fillSelect(categories) {
 function validateForm(e) {
     e.preventDefault();
     if(inputName.value === '' || selectNumber.value === '' || selectCategory.value === '' || selectDifficulty.value === '' || selectType.value === '') {
-        printAlert('Todos los campos son obligatorios', 'invalid');
+        printAlert('All fields are required', 'invalid');
         return;
     }
 
@@ -98,14 +109,25 @@ function printAlert(message, type) {
     
 }
 
-function createURL(formObj) {
+async function createURL(formObj) {
     const { number, category, difficulty, type} = formObj;
 
     const url = `https://opentdb.com/api.php?amount=${number}&category=${category}&difficulty=${difficulty}&type=${type}`
 
-    fetch(url)
-        .then(respuesta => respuesta.json())
-        .then(resultado => printTrivia(resultado.results))
+    try {
+        const respuesta = await fetch(url);
+        const resultado = await respuesta.json();
+
+        printTrivia(resultado.results);
+        
+    } catch (error) {
+        printAlert('There was an error loading the trivia. The page will refresh automatically.', 'invalid')
+    
+        setTimeout(() => {
+            location.reload();
+        }, 3000);
+    }
+
 }
 
 function printTrivia(resultado) {    
