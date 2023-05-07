@@ -1,2 +1,2 @@
 ### Trivia
-Este es un juego de trivia de diferentes temas, hecho con JS e importando las preguntas de una API externa.
+This is a trivia game of different topics, made with JS and importing the questions from an external API.
