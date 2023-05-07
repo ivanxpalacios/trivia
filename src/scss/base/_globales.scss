@@ -36,9 +36,10 @@ ul {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #C5FE60;
-    opacity: 0.7;
-    background: linear-gradient(135deg, #0b061755 25%, transparent 25%) -40px 0/ 80px 80px, linear-gradient(225deg, #0b0617 25%, transparent 25%) -40px 0/ 80px 80px, linear-gradient(315deg, #0b061755 25%, transparent 25%) 0px 0/ 80px 80px, linear-gradient(45deg, #0b0617 25%, #C5FE60 25%) 0px 0/ 80px 80px;
+    // background-color: #C5FE60;
+    // opacity: 0.7;
+    // background: linear-gradient(135deg, #0b061755 25%, transparent 25%) -40px 0/ 80px 80px, linear-gradient(225deg, #0b0617 25%, transparent 25%) -40px 0/ 80px 80px, linear-gradient(315deg, #0b061755 25%, transparent 25%) 0px 0/ 80px 80px, linear-gradient(45deg, #0b0617 25%, #C5FE60 25%) 0px 0/ 80px 80px;
+    background-image: url(../img/bg-image.avif);
 
     @include m.telefonoSmall {
         bottom: -15rem; 
